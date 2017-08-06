@@ -1,0 +1,9 @@
+site "http://community.opscode.com/api/v1"
+
+cookbook 'mysql', '5.5.3'
+cookbook 'vim'
+cookbook 'php'
+cookbook 'apache2'
+cookbook 'php5-fpm'
+cookbook 'xdebug', '~> 1.0.0'
+cookbook 'nodejs', '~> 2.4.4'

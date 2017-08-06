@@ -1,0 +1,9 @@
+* * * * * cd /vagrant/src/ && php cron.php jobCountUpdate >> /home/vagrant/cron_log.txt 2>&1
+* * * * * cd /vagrant/src/ && php cron.php countUpdate >> /home/vagrant/cron_log.txt 2>&1
+* * * * * cd /vagrant/src/ && php cron.php sendReserveMail >> /home/vagrant/cron_log.txt 2>&1
+* * * * * cd /vagrant/src/ && php cron.php declineScout >> /home/vagrant/cron_log.txt 2>&1
+* * * * * cd /vagrant/src/ && php cron.php attentionNoticeProject >> /home/vagrant/cron_log.txt 2>&1
+* * * * * cd /vagrant/src/ && php cron.php attentionNoticeCompe >> /home/vagrant/cron_log.txt 2>&1
+* * * * * cd /vagrant/src/ && php cron.php cashbackCounting >> /home/vagrant/cron_log.txt 2>&1
+0 0 * * * cd /vagrant/src/ && php cron.php updateStatusProject >> /home/vagrant/cron_log.txt 2>&1
+0 0 * * * cd /vagrant/src/ && php cron.php topicSendEmail >> /home/vagrant/cron_log.txt 2>&1

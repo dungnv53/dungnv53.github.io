@@ -1,0 +1,53 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+    config.vm.box = "ubuntu/trusty64"
+
+    config.vm.provider :virtualbox do |vb|
+        vb.customize ["modifyvm", :id, "--memory", "2048"]
+    end
+
+    config.vm.network :private_network, ip: "192.168.43.11"
+
+    config.vm.network :forwarded_port, guest: 80, host: 4567
+    config.vm.network :forwarded_port, guest: 3306, host: 4568, auto_correct: true
+
+    config.vm.synced_folder './', '/vagrant', :owner=> 'vagrant', :group=>'vagrant', :mount_options => ['dmode=777','fmode=777']
+
+    config.vm.provision :chef_solo do |chef|
+        chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
+
+        chef.add_recipe "vim"
+        chef.add_recipe "nodejs"
+        chef.add_recipe "mysql::server"
+        chef.add_recipe "mysql::client"
+        chef.add_recipe "php"
+        chef.add_recipe "apache2"
+        chef.add_recipe "php5-fpm"
+        chef.add_recipe "xdebug"
+        chef.add_recipe "appinit"
+
+        # Set an empty root password for MySQL to make things simple
+        chef.json = {
+          mysql: {
+            server_root_password: ''
+          },
+          apache: {
+            default_site_enabled: true,
+            default_modules: ['php5'],
+            mpm: 'prefork'
+          },
+          xdebug: {
+            config_file: '/etc/php5/apache2/conf.d/xdebug.ini',
+            web_server: {
+              service_name: 'apache2'
+            },
+            directives: {
+              remote_enable: '1',
+              remote_connect_back: '1',
+              idekey: 'vagrant'
+            }
+          }
+        }
+    end
+end

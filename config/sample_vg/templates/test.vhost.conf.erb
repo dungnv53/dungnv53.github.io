@@ -1,0 +1,10 @@
+<VirtualHost *:80>
+    ServerName test.localhost.com
+    DocumentRoot /vagrant/src/
+
+    <Directory /vagrant/src/>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    </Directory>
+</VirtualHost>
