@@ -1,0 +1,3 @@
+# cron: /usr/bin/start-cron.sh
+web: /run.sh
+cron: /usr/bin/start-cron.sh

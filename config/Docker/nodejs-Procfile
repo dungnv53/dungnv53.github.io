@@ -1,0 +1,2 @@
+web: node_modules/forever/bin/forever server.js
+# can use pm2. If install global we can use pm2 start server.js or forever server.js

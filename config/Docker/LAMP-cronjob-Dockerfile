@@ -1,0 +1,26 @@
+FROM tutum/apache-php
+RUN apt-get update && apt-get install -yq git php5-mcrypt && rm -rf /var/lib/apt/lists/*
+
+RUN php5enmod mcrypt
+
+RUN rm -fr /app
+ADD . /app
+RUN rm /var/www/html
+RUN ln -s /app/public /var/www/html
+
+RUN composer install
+
+EXPOSE 80
+
+RUN chmod 777 /app/public/upload
+
+# Cronjob
+RUN apt-get -y install rsyslog
+ADD files/crontab /app/crontab
+RUN crontab /app/crontab
+ADD files/bin/start-cron.sh /usr/bin/start-cron.sh
+RUN chmod +x /usr/bin/start-cron.sh
+RUN touch /var/log/cron.log
+
+CMD /usr/bin/start-cron.sh
+

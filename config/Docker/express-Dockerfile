@@ -1,0 +1,32 @@
+# Dockerfile
+FROM quay.io/aptible/nodejs:v6.9.x
+
+# Add package.json before rest of repo, for Docker caching purposes
+# See http://ilikestuffblog.com/2014/01/06/
+ADD package.json /app/
+WORKDIR /app
+RUN npm install --production
+
+# If you use Bower, uncomment the following lines:
+# RUN npm install -g bower
+# ADD bower.json /app/
+# RUN bower install --allow-root
+
+ADD . /app
+
+# Run any additional build commands here...
+# RUN grunt some:task
+
+ENV PORT 8081
+EXPOSE 8081
+#EXPOSE 80
+
+
+#RUN apt-get update && apt-get install -yq git php5-mcrypt && rm -rf /var/lib/apt/lists/*
+
+
+#EXPOSE 8081
+#EXPOSE 22
+#ports:
+#    - "3000:3000"
+#    - "3001:3001"
