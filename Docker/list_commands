@@ -1,0 +1,22 @@
+# create image
+# create container
+# list image
+# list all image
+# list container
+# list all container
+
+# destroy image
+# stop container
+# destroy container
+
+# create volume
+# list volume
+# use volume
+
+# Examples
+# aptible mysql
+# aptible nodejs
+# nginx-php-phpmyadmin docker-compose
+
+# supervisord
+# bash tricks
