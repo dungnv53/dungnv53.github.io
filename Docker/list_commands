@@ -20,3 +20,28 @@
 
 # supervisord
 # bash tricks
+
+#swarm scale up/clustering
+
+# case Digital Ocean
+# case Google Kubernetes
+
+# Aliases
+alias dk='sudo docker '
+alias dkbash='sudo docker exec -i -t $1 /bin/bash'
+alias dkhist='sudo docker history '
+alias dkhlp='cat ~/.COPY/.dockerone'
+alias dkim='sudo docker images'
+alias dkima='sudo docker images -a'
+alias dkinspt='sudo docker inspect '
+alias dkprunea='sudo docker system prune -a '
+alias dkps='sudo docker ps'
+alias dkpsa='sudo docker ps -a'
+alias dkrename='sudo docker remame '
+alias dkrm='sudo docker rm '
+alias dkrmi='sudo docker rmi '
+alias dkst='sudo docker stats '
+alias dkstp='sudo docker stop '
+alias dkvl='sudo docker volume ls '
+alias dkvlisp='sudo docker volume inspect '
+
