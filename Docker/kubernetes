@@ -1,0 +1,32 @@
+git clone https://dungnv53:ah64dlongboud@github.com/Legio-Augusta/golang_docker_kubernetes.git
+cd golang_docker_kubernetes/
+sudo docker-machine create --driver virtualbox kuber-one
+sudo docker-machine create --driver virtualbox kuber-one
+sudo docker-machine create --driver virtualbox kuber-one
+git clone https://dungnv53:ah64dlongboud@github.com/Legio-Augusta/kubernetes-nodejs-example.git
+cd kubernetes-nodejs-example/
+ls kubernetes/
+cat kubernetes/deployment.yaml 
+ls kubernetes/
+cat kubernetes/secret-redis.yaml 
+cat kubernetes/se
+cat kubernetes/service.yaml 
+cd golang_docker_kubernetes/
+cd golang_docker_kubernetes/
+cd kubernetes-nodejs-example/
+git clone https://github.com/GoogleCloudPlatform/continuous-deployment-on-kubernetes.git
+cd continuous-deployment-on-kubernetes/
+hist |grep kuber
+hist |grep kuber > ~/.COPY/.kuberctl
+git clone https://github.com/GoogleCloudPlatform/continuous-deployment-on-kubernetes.git
+cd continuous-deployment-on-kubernetes/
+kubectl cluster-info
+kubectl create ns jenkins
+kubectl create secret generic jenkins --from-file=jenkins/k8s/options --namespace=jenkins
+kubectl apply -f jenkins/k8s/
+kubectl get pods --namespace jenkins
+kubectl get svc --namespace jenkins
+kubectl create secret generic tls --from-file=/tmp/tls.crt --from-file=/tmp/tls.key --namespace jenkins
+kubectl apply -f jenkins/k8s/lb/ingress.yaml
+kubectl describe ingress jenkins --namespace jenkins
+

@@ -1,0 +1,2 @@
+sudo docker network ls
+sudo docker network inspect bridge
